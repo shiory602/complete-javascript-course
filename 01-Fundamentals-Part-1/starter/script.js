@@ -155,5 +155,13 @@ let bill = 275;
 // let bill = 40;
 // let bill = 430;
 let tip = bill >=50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
-
 console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`);
+
+
+let tipCalculator = bill => {
+	let tip = bill >=50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+	return `The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`
+}
+console.log(tipCalculator(275));
+console.log(tipCalculator(40));
+console.log(tipCalculator(430));
