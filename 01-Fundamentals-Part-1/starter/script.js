@@ -92,12 +92,68 @@
 // § Data Bonus 2: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 106
 
 
-let DolphinsAve = (96 + 108 + 89) / 3;
-let KoalasAve = (88 + 91 + 110) / 3;
+// let DolphinsAve = (96 + 108 + 89) / 3;
+// let KoalasAve = (88 + 91 + 110) / 3;
+// console.log(DolphinsAve, KoalasAve);
 
-let DolphinsB1Ave = (97 + 112 + 101) / 3;
-let KoalasB1Ave = (109 + 95 + 123) / 3;
+// if(DolphinsAve > KoalasAve) {
+// 	console.log("Dolphins win");
+// } else if (DolphinsAve < KoalasAve) {
+// 	console.log("Koalas win");
+// } else {
+// 	console.log("Draw");
+// }
 
-let DolphinsB2Ave = (97 + 112 + 101) / 3;
-let KoalasB2Ave = (109 + 95 + 106) / 3;
+// // Bonus1
+// let DolphinsB1Ave = (97 + 112 + 101) / 3;
+// let KoalasB1Ave = (109 + 95 + 123) / 3;
+// console.log(DolphinsB1Ave, KoalasB1Ave);
 
+// if(DolphinsB1Ave > KoalasB1Ave && DolphinsB1Ave >= 100) {
+// 	console.log("Dolphins win");
+// } else if (DolphinsB1Ave < KoalasB1Ave && KoalasB1Ave >= 100) {
+// 	console.log("Koalas win");
+// } else {
+// 	console.log("No one wins");
+// }
+
+
+// let DolphinsB2Ave = (97 + 112 + 101) / 3;
+// let KoalasB2Ave = (109 + 95 + 106) / 3;
+// console.log(DolphinsB2Ave, KoalasB2Ave);
+
+// if(DolphinsB2Ave > KoalasB2Ave && DolphinsB2Ave >= 100) {
+// 	console.log("Dolphins win");
+// } else if (DolphinsB2Ave < KoalasB2Ave && KoalasB2Ave >= 100) {
+// 	console.log("Koalas win");
+// } else if (DolphinsB2Ave === KoalasB2Ave && DolphinsB2Ave >= 100 && KoalasB2Ave >= 100) {
+// 	console.log("Both wins");
+// } else {
+// 	console.log("No one wins");
+// }
+
+
+//--------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------//
+
+
+// Coding Challenge #4
+// Steven wants to build a very simple tip calculator for whenever he goes eating in a restaurant. In his country, it's usual to tip 15% if the bill value is between 50 and 300. If the value is different, the tip is 20%.
+
+// Your tasks:
+// 1. Calculate the tip, depending on the bill value. Create a variable called 'tip' for this. It's not allowed to use an if/else statement 😅 (If it's easier for you, you can start with an if/else statement, and then try to convert it to a ternary operator!)
+// 2. Print a string to the console containing the bill value, the tip, and the final value (bill + tip). Example: “The bill was 275, the tip was 41.25, and the total value 316.25”
+
+// Test data:
+// § Data 1: Test for bill values 275, 40 and 430
+
+// Hints:
+// § To calculate 20% of a value, simply multiply it by 20/100 = 0.2
+// § Value X is between 50 and 300, if it's >= 50 && <= 300 😉
+
+let bill = 275;
+// let bill = 40;
+// let bill = 430;
+let tip = bill >=50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+
+console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`);
