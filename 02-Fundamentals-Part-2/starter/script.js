@@ -8,17 +8,30 @@
 // Hint: Use an if/else statement 😉
 // GOOD LUCK 😀
 
-const massMark = 95;
-const heightMark = 1.88;
-const massJohn = 85;
-const heightJohn = 1.76;
+// const massMark = 95;
+// const heightMark = 1.88;
+// const massJohn = 85;
+// const heightJohn = 1.76;
 
-const BMIMark = (massMark / heightMark ** 2).toFixed(2);
-const BMIJohn = (massJohn / (heightJohn * heightJohn)).toFixed(2);
-const markHigherBMI = BMIMark > BMIJohn;
+// const BMIMark = (massMark / heightMark ** 2).toFixed(2);
+// const BMIJohn = (massJohn / (heightJohn * heightJohn)).toFixed(2);
+// const markHigherBMI = BMIMark > BMIJohn;
 
-if (BMIMark > BMIJohn) {
-	console.log(`John's BMI ${BMIJohn} is higher than Mark's ${BMIMark}!`);
-} else {
-	console.log(`Mark's BMI ${BMIMark} is higher than John's ${BMIJohn}!`);
+// if (BMIMark > BMIJohn) {
+// 	console.log(`Mark's BMI ${BMIMark} is higher than John's ${BMIJohn}!`);
+// } else {
+// 	console.log(`John's BMI ${BMIJohn} is higher than Mark's ${BMIMark}!`);
+// }
+
+let mbiCalculator = (wm, hm, wj, hj) => {
+	let bmiM = (wm / hm ** 2).toFixed(2);
+	let bmiJ = (wj / (hj * hj)).toFixed(2);
+	if (bmiM > bmiJ) {
+		return `Mark's BMI ${bmiM} is higher than John's ${bmiJ}!`;
+	} else {
+		return `John's BMI ${bmiJ} is higher than Mark's ${bmiM}!`;
+	}
 }
+
+console.log(mbiCalculator(78, 1.69, 92, 1.95));
+console.log(mbiCalculator(95, 1.88, 85, 1.76));
