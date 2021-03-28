@@ -129,7 +129,7 @@
 // 4.2. To calculate the average, divide the sum you calculated before by the length of the array (because that's the number of elements)
 // 4.3. Call the function with the 'totals' array
 
-let calcTip = bill => bill >= 50 && bill <= 300	? bill * 0.15 : bill * 0.2;
+let calcTip = bill => bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 let bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
 let tips = [];
 let totals = [];
