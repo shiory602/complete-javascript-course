@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 // scope ----------------------------------------
 /*
@@ -38,7 +38,7 @@ calcAge(1991);
 */
 // ----------------------------------------------
 // hoisting --------------------------------------
-
+/*
 // Variable
 console.log(me);
 // console.log(job);
@@ -81,3 +81,47 @@ const z = 3;
 console.log(x === window.x);
 console.log(y === window.y);
 console.log(z === window.z);
+*/
+// -------------------------------------------------
+
+
+// this keyword -------------------------------------
+/*
+console.log(this); // window
+
+const calcAge = function (birthYear) {
+	console.log(2037 - birthYear);
+	console.log(this);
+}
+calcAge(1991);
+
+const calcAgeArrow = birthYear => {
+	console.log(2037 - birthYear);
+	console.log(this); // global scome -> window
+}
+calcAgeArrow(1980);
+
+const jonas = {
+	year: 1991,
+	calcAge: function () {
+		console.log(this);
+		console.log(2037 - this.year);
+	},
+};
+jonas.calcAge();
+
+const matilda = {
+	year: 2017,
+};
+
+matilda.calcAge = jonas.calcAge;
+matilda.calcAge();
+
+const f = jonas.calcAge;
+f();
+*/
+// -----------------------------------------------
+
+// Regular Functions vs. Arrow Functions --------
+
+// ----------------------------------------------
