@@ -390,7 +390,7 @@ Your tasks:
 7. The team with the lower odd is more likely to win. Print to the console which team is more likely to win, without using an if/else statement or the ternary operator.
 Test data for 6.: First, use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Then, call the function again with players from game.scored
 */
-/*
+
 const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
@@ -434,6 +434,7 @@ const game = {
   },
 };
 
+/*
 // 1.
 const [players1, players2] = game.players;
 console.log(players1, players2);
@@ -487,7 +488,8 @@ Your tasks:
 Odd of victory Bayern Munich: 1.33
 Odd of draw: 3.25
 Odd of victory Borrussia Dortmund: 6.5
-Get the team names directly from the game object, don't hardcode them (except for "draw"). Hint: Note how the odds and the game objects have the same property names �
+Get the team names directly from the game object, don't hardcode them (except for "draw").
+Hint: Note how the odds and the game objects have the same property names �
 4. Bonus: Create an object called 'scorers' which contains the names of the players who scored as properties, and the number of goals as the value. In this
 game, it will look like this:
 {
@@ -498,12 +500,22 @@ game, it will look like this:
 */
 
 // 1.
+for (const [i, el] of game.scored.entries()) {
+  console.log(`Goal ${i + 1}: ${el}`);
+}
 
+// 2.******************************
+const odds = Object.values(game.odds)
+let average = 0;
+for (const odd of odds) average += odd;
+average /= odds.length;
+console.log(average);
 
-// 2.
-
-
-// 3.
+// 3.******************************
+for (const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr} ${odd}`);
+}
 
 
 // 4.
