@@ -56,11 +56,169 @@ const restaurant = {
 };
 
 
+/*- ---------------------------------
+/* Coding Challenge #4
+Write a program that receives a list of variable names written in underscore_case and convert them to camelCase.
+The input will come from a textarea inserted into the DOM (see code below to insert the elements), and conversion will happen when the button is pressed.
+Test data (pasted to textarea, including spaces):
+underscore_case
+first_name
+Some_Variable
+calculate_AGE
+delayed_departure
+Should produce this output (5 separate console.log outputs):
+underscoreCase   ✅
+firstName        ✅✅
+someVariable     ✅✅✅
+calculateAge     ✅✅✅✅
+delayedDeparture ✅✅✅✅✅
+Hints:
+§ Remember which character defines a new line in the textarea �
+§ The solution only needs to work for a variable made out of 2 words, like a_b
+§ Start without worrying about the ✅. Tackle that only after you have the variable
+name conversion working �
+§ This challenge is difficult on purpose, so start watching the solution in case
+you're stuck. Then pause and continue!
+Afterwards, test with your own test data! */
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+document.querySelector('button').addEventListener('click', function () {
+    const input = document.querySelector('textarea').value;
+    const rows = input.split('\n');
+    for (const [i, row] of rows.entries()) {
+      const [first, second] = row.toLowerCase().trim().split('_');
+
+      const output = `${first}${second.replace(second[0], second[0].toUpperCase())}`;
+      console.log(`${output.padEnd(20, ' ')}${'🌸'.repeat(i + 1)}`);
+    }
+  }) *
+  /
+
+/*
+///////////////////////////////////////////////
+// Working with Strings p3 --------------------
+
+// Split and join
+console.log('a+very+nice+string'.split('+'));
+console.log('Jonas Schmedtmann'.split(' '));
+
+const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
+
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
+}
+capitalizeName('jessica and smith davis');
+capitalizeName('jonas schmedtmann');
+
+// padding
+const message = 'Go to gate 23!';
+console.log(message.padStart(20, '+').padEnd(30, '+'));
+console.log('Jonas'.padStart(20, '+').padEnd(30, '+'));
+
+const maskCreditCard = function (number) {
+  const str = number + '';
+  const last = str.slice(-4); // 後ろから４つまで
+  return last.padStart(str.length, '*');
+}
+
+console.log(maskCreditCard(43354352652643));
+console.log(maskCreditCard('454545465555566663'));
+
+// Repeat
+const message2 = 'Bad weather... All Departures Delayed...';
+console.log(message2.repeat(5));
+
+const planesInLine = function (n) {
+  console.log(`
+            There are $ {
+              n
+            }
+            planes in line $ {
+              '🛩'.repeat(n)
+            }
+            `);
+}
+planesInLine(5);
+planesInLine(12);
+////////////////////////////////////////////////
+*/
+
+
+
+
+
+/*
 // Working with Strings p2 --------------------
 const airline = 'TAP Air Portugal';
 
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
 
+// Fix capitalization in namespace
+const passenger = 'jOnAS'; // Jonas
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
 
+// Comparing emails
+const email = 'hello@jonas.io';
+const loginEmail = '  Hello@Jonas.Io \n';
+
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+console.log(email === normalizedEmail);
+
+// replacing
+const priceJP = '288,97¥';
+const priceUS = priceJP.replace('¥', '$').replace(',', '.');
+console.log(priceUS);
+
+const announcement = 'All passengers come to boarding door 23!';
+
+console.log(announcement.replace('door', 'gate'));
+// console.log(announcement.replace('door', 'gate'));
+
+console.log(announcement.replace(/door/g, 'gate'));
+
+// booleans
+const plane = 'Airbus A320neo';
+console.log(plane.includes('A320'));
+console.log(plane.includes('Boeing'));
+console.log(plane.startsWith('Air'));
+
+if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+  console.log('Part of the NEW Airbus family');
+}
+
+// Practice exercise
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are NOT allowed on board');
+  } else {
+    console.log('Welcome aboard!');
+  }
+}
+
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
+*/
 
 /*
 // Working with Strings p1 --------------------
@@ -139,15 +297,32 @@ gameEvents.delete(64);
 console.log(gameEvents);
 
 // 3.
-console.log(`An event happened, on average, every ${90 / gameEvents.size} minutes`);
+console.log(`
+            An event happened, on average, every $ {
+              90 / gameEvents.size
+            }
+            minutes `);
 const time = [...gameEvents.keys()].pop();
 console.log(time);
-console.log(`An event happened, on average, every ${time / gameEvents.size} minutes`);
+console.log(`
+            An event happened, on average, every $ {
+              time / gameEvents.size
+            }
+            minutes `);
 
 // 4.
 for (const [min, event] of gameEvents) {
   const half = min <= 45 ? 'FIRST' : 'SECOND';
-  console.log(`[${half} HALF] ${min}: ${event}`);
+  console.log(` [$ {
+                half
+              }
+              HALF
+            ] $ {
+              min
+            }: $ {
+              event
+            }
+            `);
 }
 */
 ////////////////////////////////////////////
@@ -172,7 +347,13 @@ const hoursMap = new Map(Object.entries(openingHours));
 console.log(hoursMap);
 
 for (const [key, value] of question) {
-  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+  if (typeof key === 'number') console.log(`
+            Answer $ {
+              key
+            }: $ {
+              value
+            }
+            `);
 }
 const answer = Number(prompt('Your answer'));
 console.log(answer);
@@ -354,7 +535,11 @@ console.log(team1, draw, team2);
 
 // 6.
 const printGoals = function (...players) {
-  console.log(`${players.length} goals were scored`);
+  console.log(`
+            $ {
+              players.length
+            }
+            goals were scored `);
 }
 
 printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
@@ -362,8 +547,12 @@ printGoals('Davies', 'Muller');
 printGoals(...game.scored);
 
 // 7.******************************
-team1 < team2 && console.log(`Team 1 is more likely to win.`);
-team1 > team2 && console.log(`Team 2 is more likely to win.`);
+team1 < team2 && console.log(`
+            Team 1 is more likely to win.
+            `);
+team1 > team2 && console.log(`
+            Team 2 is more likely to win.
+            `);
 */
 
 
@@ -392,7 +581,13 @@ game, it will look like this:
 /*
 // 1.
 for (const [i, el] of game.scored.entries()) {
-  console.log(`Goal ${i + 1}: ${el}`);
+  console.log(`
+            Goal $ {
+              i + 1
+            }: $ {
+              el
+            }
+            `);
 }
 
 // 2.******************************
@@ -404,8 +599,19 @@ console.log(average);
 
 // 3.******************************
 for (const [team, odd] of Object.entries(game.odds)) {
-  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
-  console.log(`Odd of ${teamStr} ${odd}`);
+  const teamStr = team === 'x' ? 'draw' : `
+            victory $ {
+              game[team]
+            }
+            `;
+  console.log(`
+            Odd of $ {
+              teamStr
+            }
+            $ {
+              odd
+            }
+            `);
 }
 
 
@@ -418,9 +624,16 @@ for (const [team, odd] of Object.entries(game.odds)) {
 const properties = Object.keys(openingHours);
 console.log(properties);
 
-let openStr = `We are open on ${properties.length} days: `;
+let openStr = `
+            We are open on $ {
+              properties.length
+            }
+            days: `;
 for (const day of properties) {
-  openStr += `${day}, `;
+  openStr += `
+            $ {
+              day
+            }, `;
 }
 console.log(openStr);
 
@@ -437,7 +650,17 @@ for (const [key, {
     open,
     close
   }] of entries) {
-  console.log(`On ${key} we open at ${open} and close at ${close}`);
+  console.log(`
+            On $ {
+              key
+            }
+            we open at $ {
+              open
+            }
+            and close at $ {
+              close
+            }
+            `);
 }
 */
 ////////////////////////////////////////////////////
@@ -455,12 +678,20 @@ if (restaurant.openingHours && restaurant.openingHours.mon) console.log(restaura
 const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 for (const day of days) {
   console.log(day);
-  // const open = restaurant.openingHours[day] ? .open ? ? `closed`;
-  console.log(`On ${day}, we open at ${open}`);
+  // const open = restaurant.openingHours[day] ? .open ? ? `
+            closed `;
+  console.log(`
+            On $ {
+              day
+            }, we open at $ {
+              open
+            }
+            `);
 }
 
 // Methods
-// console.log(restaurant.order ? .(0, 1) ? ? `Method does not exist`);
+// console.log(restaurant.order ? .(0, 1) ? ? `
+            Method does not exist `);
 // console.log(restaurant.orderRisotto ? .(0, 1) ? ? 'Method does not exist');
 
 // arrays
@@ -483,7 +714,13 @@ const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 for (const item of menu) console.log(item);
 
 for (const [i, el] of menu.entries()) {
-  console.log(`${i + 1}: ${el}`);
+  console.log(`
+            $ {
+              i + 1
+            }: $ {
+              el
+            }
+            `);
 }
 /////////////////////////////////////////////////
 */
@@ -604,7 +841,11 @@ const str = 'Jonas';
 const letters = [...str, ' ', 'S.'];
 console.log(letters);
 console.log(...str);
-// console.log(`${...str} Schmedtmann`); // error
+// console.log(`
+            $ {
+              ...str
+            }
+            Schmedtmann `); // error
 
 // Real world example
 const ingredients = [prompt('Let\'s make pasta! Ingredient 1?'), prompt('Let\'s make pasta! Ingredient 2?'), prompt('Let\'s make pasta! Ingredient 3?'), ];
