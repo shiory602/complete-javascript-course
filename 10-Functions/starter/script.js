@@ -336,6 +336,7 @@ booker();
 console.dir(booker);
 */
 
+/*
 // more closures example
 // Example1
 let f;
@@ -375,3 +376,5 @@ const boardPassengers = function(n, wait) {
 }
 
 boardPassengers(180, 3);
+*/
+
