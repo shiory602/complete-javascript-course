@@ -1,5 +1,5 @@
 'use strict';
-/*
+
 const Person = function(firstName, birthYear) {
     this.firstName = firstName;
     this.birthYear = birthYear;
@@ -26,6 +26,11 @@ console.log(matilda, jack);
 console.log(jonas instanceof Person); // true
 // console.log(john instanceof Person); // false
 
+Person.hey = function () {
+    console.log('Hey there 👏');
+    console.log(this);
+;}
+Person.hey();
 
 // Prototypes
 Person.prototype.calcAge = function() {
@@ -137,6 +142,7 @@ class PersonCl {
         this.birthYear = birthYear;
     }
     
+    // Instance methods
     // Methods will be added to .prototype property
     calcAge() {
         console.log(2037 - this.birthYear);
@@ -152,7 +158,6 @@ class PersonCl {
 
     // Set a property already exist
     set fullName(name) {
-        console.log(name);
         if(name.includes(' ')) this._fullName = name;
         else alert(`${name} is not a full name!`);
     }
@@ -180,7 +185,9 @@ jessica.greet();
 
 const walter = new PersonCl('Walter White', 1965);
 
+Person.hey();
 
+/*
 const account = {
     owner: 'Jonas',
     movements: [200, 530, 120, 300],
@@ -198,7 +205,7 @@ console.log(account.latest);
 
 account.latest = 50;
 console.log(account.movements);
-
+*/
 
 
 
